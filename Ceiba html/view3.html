@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+  <!-- Core CSS - Include with every page -->
+  <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet">
+  <!-- <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/main-style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+      </div>
+    </div>
+  </div>
+  <!-- navbar top -->
+  <nav class="navbar navbar-default " role="navigation" id="navbar" style="	background-image: linear-gradient(to bottom, rgb(150,178,137), rgb(150,178,137));	background-position: top left;	background-size: 100%;	background-repeat: repeat;" padding="700px">
+    <!-- navbar-header -->
+    <div class="navbar-header">
+      <h1 class="">Ceiba Solar Eafit</h1>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- end navbar-header -->
+    <!-- navbar-top-links -->
+    <ul class="nav navbar-top-links navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"></a>
+      </li>
+      <li class="dropdown">
+        <a onclick="toView2()" class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a onclick="toView1()" class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="fa fa-arrow-circle-o-right fa-3x" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a onclick="toView1()" class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="fa fa-info-circle fa-3x" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="dropdown">
+        <!-- dropdown user-->
+        <ul class="dropdown-menu dropdown-user" style="">
+          <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+          </li>
+          <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+          </li>
+          <li class="divider"></li>
+          <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+          </li>
+        </ul>
+        <!-- end dropdown-user -->
+      </li>
+      <!-- end main dropdown -->
+    </ul>
+    <!-- end navbar-top-links -->
+  </nav>
+  <div class="col-xs-4">
+    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+      <div class="panel-body">
+        <h1 class="display-1">5 PW</h1>
+        <h3 id="valuePv">VALUE PV gen </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+      <div class="panel-body">
+        <h1 class="display-1">5 PW</h1>
+        <h3 id="valueConsume">VALUE consum </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+      <div class="panel-body">
+        <i class="fa fa-percent fa-5x"></i>
+        <h3 id="percentageVal">VAL </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+      <div class="panel-body">
+        <div id="div1" class="fa fa-5x fa-rotate-270"></div>
+        <script style="">
+          function chargebattery() {
+            var a;
+            a = document.getElementById("div1");
+            a.innerHTML = "&#xf244;";
+            setTimeout(function() {
+              a.innerHTML = "&#xf243;";
+            }, 1000);
+            setTimeout(function() {
+              a.innerHTML = "&#xf242;";
+            }, 2000);
+            setTimeout(function() {
+              a.innerHTML = "&#xf241;";
+            }, 3000);
+            setTimeout(function() {
+              a.innerHTML = "&#xf240;";
+            }, 4000);
+          }
+          chargebattery();
+          setInterval(chargebattery, 5000);
+        </script>
+        <h3 id="valSoc">VAL SoC </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+      <div class="panel-body">
+        <i class="fa fa-lightbulb-o fa-5x"></i>
+        <h3 id="valEqLight">VAL Eq light </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+      <div class="panel-body">
+        <i class="fa fa-plug fa-5x"></i>
+        <h3 id="valConsumoAC">VAL consumo AC </h3>
+      </div>
+    </div>
+  </div>
+  <!-- end navbar top -->
+  <!--  wrapper -->
+  <div id="wrapper" style="	background-image: linear-gradient(to bottom, rgb(239,234,224), rgb(239,234,224));	background-position: top left;	background-size: 100%;	background-repeat: repeat;" class="">
+    <!-- Core Scripts - Include with every page -->
+    <script src="assets/plugins/jquery-1.10.2.js" style=""></script>
+    <script src="assets/plugins/bootstrap/bootstrap.min.js" style=""></script>
+    <script src="assets/plugins/metisMenu/jquery.metisMenu.js" style=""></script>
+    <script src="assets/plugins/pace/pace.js" style=""></script>
+    <script src="assets/scripts/siminta.js" style=""></script>
+    <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+  </div>
+  <script type="text/javascript" src="../view3.js"></script>
+</body>
+
+</html>
