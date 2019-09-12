@@ -76,7 +76,7 @@ class ModBus_API:
 
 
 port = "/dev/ttyACM0"  # USB port where Arduino is connected
-s1 = serial.Serial(port, 9600)  # Start the serial port
+s1 = serial.Serial(port, 9600, timeout= 10000)  # Start the serial port
 s1.flushInput()
 
 
@@ -90,23 +90,24 @@ def make_json(line):
     # print(values)
     for i in range(len(var_names)):
         if i == len(var_names):
-            json_body += '{0}:{1}\n'.format(var_names[i], values[i])
-        json_body += '{0}:{1},\n'.format(var_names[i], values[i])
+            json_body += '\"{0}\":{1}\n'.format(var_names[i], values[i])
+        json_body += '\"{0}\":{1},\n'.format(var_names[i], values[i])
     last_comma_index = json_body.rfind(',')
     json_body = json_body[:last_comma_index]+json_body[last_comma_index+1:]
     return '{\n'+'{0}'.format(json_body)+'}'
 
 
-x = ModBus_API()
-x.connect_to_ccgx()
+#x = ModBus_API()
+#x.connect_to_ccgx()
 
-while True:
+'''while True:
     try:
         if s1.inWaiting() > 0:
             line = s1.readline()
             if len(line) > 1:
-                print(x.show_data())
-                make_json(line)
+                #print(x.show_data())
+                print("json: ",make_json(line))
     except:
         print("error unexpected:", sys.exc_info()[0])	
         raise
+'''
