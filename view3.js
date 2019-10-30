@@ -8,12 +8,12 @@ async function view3Funct() {
     
     data = JSON.parse(await xmlHttp.responseText)
     
-    document.getElementById("valuePv").innerText = data["valuePv"]
-    document.getElementById("valueConsume").innerText = data["valueConsume"]
+    document.getElementById("valuePv").innerText = data["valuePv"] + " PW"
+    document.getElementById("valueConsume").innerText = data["valueConsume"] +" PW"
     document.getElementById("percentageVal").innerText = data["percentageVal"]
-    document.getElementById("valSoc").innerText = data["valSoc"]
-    document.getElementById("valEqLight").innerText = data["valEqLight"]
-    document.getElementById("valConsumoAC").innerText = data["valConsumoAC"]
+    document.getElementById("valSoc").innerText = data["valSoc"]+" SoC"
+    document.getElementById("valEqLight").innerText = data["valEqLight"]+ "Eq light"
+    document.getElementById("valConsumoAC").innerText = data["valConsumoAC"] + "consumo AC"
 }
 
 let toView1 = function(){

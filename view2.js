@@ -11,11 +11,11 @@ async function view2Funct() {
     console.log(data)
     
     document.getElementById("horaView2").innerText = d.getHours();
-    document.getElementById("fechaView2").innerText = d.getFullYear()+"/"+d.getMonth()+"/"+d.getDate()
-    document.getElementById("radiacView2").innerText = data["radiacion"]
-    document.getElementById("pressureView2").innerText = data["pressure"]
-    document.getElementById("humedadView2").innerText = data["humedad"]
-    document.getElementById("tempView2").innerText = data["temp"]
+    document.getElementById("fechaView2").innerText = d.getFullYear()+"/"+d.getMonth()+"/"+d.getDate();
+    document.getElementById("radiacView2").innerText = data["radiacion"];
+    document.getElementById("pressureView2").innerText = data["pressure"]+" mbar";
+    document.getElementById("humedadView2").innerText = data["humedad"]+" Humedad";
+    document.getElementById("tempView2").innerText = data["temp"]+" Temp";
 }
 
 let toView1 = function(){

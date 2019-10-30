@@ -15,6 +15,7 @@ def getView2():
 
 @app.route('/getView3')
 def getView3():
+    print(executer.x.show_data())
     data  = json.dumps(globalValuesArduino)
     globalValuesArduino.clear()
     return data

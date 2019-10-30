@@ -97,8 +97,8 @@ def make_json(line):
     return '{\n'+'{0}'.format(json_body)+'}'
 
 
-#x = ModBus_API()
-#x.connect_to_ccgx()
+x = ModBus_API()
+x.connect_to_ccgx()
 
 '''while True:
     try:
