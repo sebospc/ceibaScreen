@@ -28,7 +28,7 @@ function createWindow() {
         }
     }))
     win.maximize();
-    
+    win.setFullScreen(true);    
     win.once('ready-to-show', () => win.show)
 
 
