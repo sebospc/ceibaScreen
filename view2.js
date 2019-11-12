@@ -19,10 +19,10 @@ async function view2Funct() {
 }
 
 let toView1 = function(){
-    window.location.replace('./view1.html');
+    window.location.replace('./about.html');
 }
 let toView3 = function(){
-    window.location.replace('./view3.html');
+    window.location.replace('./variablesVictron.html');
 }
 
 var myVar = setInterval(recolectInfo, 1000);

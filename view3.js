@@ -17,10 +17,10 @@ async function view3Funct() {
 }
 
 let toView1 = function(){
-    window.location.replace('./view1.html');
+    window.location.replace('./about.html');
 }
 let toView2 = function(){
-    window.location.replace('./view2.html');
+    window.location.replace('./variablesVictron.html');
 }
 
 

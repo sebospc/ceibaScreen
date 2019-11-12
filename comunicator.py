@@ -1,23 +1,36 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
+import requests as rq
 import json
 import random
 import executer
+
+
+
 app = Flask(__name__)
+SERVER_URL =  "http://localhost"
+
 
 globalValuesArduino = {}
 @app.route('/getView2', methods=['GET'])
 def getView2():
     data  = json.dumps(globalValuesArduino)
-    globalValuesArduino.clear()
+
     return data
 
 @app.route('/getView3')
 def getView3():
     print(executer.x.show_data())
     data  = json.dumps(globalValuesArduino)
-    globalValuesArduino.clear()
+    
+    return data
+
+@app.route('/updateVictronValues')
+def updateVictronValues():
+    print(executer.x.show_data())
+    data  = json.dumps(globalValuesArduino)
+    
     return data
 
 @app.route("/updateArduinoValues")
@@ -31,6 +44,17 @@ def updateArduinoValues():
                 globalValuesArduino[i] = arduinoValues[i]
     
     return "nice",200
+
+
+
+def sendDataToServer():
+    
+    #r = rq.post(url = "http://localhost:8080/ceiba_data", data = {"data":json.dumps([{"measure":"s1","value":"-1"},{"measure":"s2","value":"-1"}])})
+    r = rq.post(url = "http://localhost:8080/ceiba_data", data = {"data":json.dumps([{"measure":i, "value":globalValuesArduino[i]} for i in globalValuesArduino])})
+    
+    pastebin_url = r.text 
+    print("The pastebin URL is:%s"%pastebin_url) 
+
 
 if __name__ == '__main__':
 

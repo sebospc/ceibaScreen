@@ -21,7 +21,7 @@ function createWindow() {
         } })
     app.commandLine.appendSwitch('ignore-certificate-errors');
     win.loadURL(url.format({
-        pathname: path.join(__dirname, './Ceiba html/view2.html'),
+        pathname: path.join(__dirname, './Ceiba html/variablesArduino.html'),
         protocol: 'file',
         webPreferences: {
             devTools: true

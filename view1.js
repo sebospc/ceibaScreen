@@ -1,6 +1,6 @@
 let toView2 = function(){
-    window.location.replace('./view2.html');
+    window.location.replace('./variablesArduino.html');
 }
 let toView3 = function(){
-    window.location.replace('./view3.html');
+    window.location.replace('./variablesVictron.html');
 }
