@@ -4,19 +4,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+  <title>External variables</title>
   <!-- Core CSS - Include with every page -->
   <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet">
   <!-- <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/main-style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-  <nav class="navbar navbar-default " role="navigation" id="navbar" style="	background-image: linear-gradient(to bottom, rgb(150,178,137), rgb(150,178,137));	background-position: top left;	background-size: 100%;	background-repeat: repeat;" padding="700px">
+  <nav class="navbar navbar-default " role="navigation" id="navbar"
+    style="	background-image: linear-gradient(to bottom, rgb(150,178,137), rgb(150,178,137));	background-position: top left;	background-size: 100%;	background-repeat: repeat;"
+    padding="700px">
     <!-- navbar-header -->
     <div class="navbar-header">
       <h1 class="">Ceiba Solar Eafit</h1>
@@ -60,84 +62,108 @@
     </ul>
     <!-- end navbar-top-links -->
   </nav>
-  <div class="col-xs-4">
-    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-      <div class="panel-body">
-        <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
-        <h3 id="horaView2">HORA </h3>
+  <div id="container" style="display: flex">
+    <div style="width: 4%"></div>
+    <div style="height: 420px; width: 35%;background-color: #9ed9c2">
+      <font size="20">
+        <p style="text-align: center">
+          <b id="fechaActual">FECHA</b>
+        </p>
+      </font>
+      <font size="5">
+        <p style="text-align: center">
+          La Ceiba ha generado la energía para mantener este bombillo encendido durante
+        </p>
+      </font>
+      <div style="display: flex; justify-content: center;">
+        <img src="./assets/img/bombilla.png" width="100" height="100" align="middle" />
+      </div>
+      <font size="15">
+        <p style="text-align: center">
+          <b id="añosBombillo">N años</b>
+        </p>
+      </font>
+    </div>
+    <div style="width: 4%"></div>
+    <div>
+      <div class="col-xs-4">
+        <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+          <div class="panel-body">
+            <i class="fa fa-sun-o fa-5x" aria-hidden="true"></i>
+            <h3 id="radiacView2">VALUE Radiac </h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+          <div class="panel-body">
+              <img src="./assets/img/presion.png" width="70" height="70" align="middle" />
+            <h3 id="pressureView2">1011mbar</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4" style="visibility: hidden">
+          <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+            <div class="panel-body">
+                <img src="./assets/img/presion.png" width="70" height="70" align="middle" />
+              <h3>1011mbar</h3>
+            </div>
+          </div>
+        </div>
+
+      <div class="col-xs-4">
+        <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+          <div class="panel-body">
+            <i class="fa fa-tint fa-5x" width="500" aria-hidden="true"></i>
+            <h3 id="humedadView2">VAL Humedad</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
+          <div class="panel-body">
+            <div id="div1" class="fa fa-5x"></div>
+            <script style="">
+              function chargeterm() {
+                var a;
+                a = document.getElementById("div1");
+                a.innerHTML = "&#xf2cb;";
+                setTimeout(function () {
+                  a.innerHTML = "&#xf2ca;";
+                }, 1000);
+                setTimeout(function () {
+                  a.innerHTML = "&#xf2c8;";
+                }, 2000);
+                setTimeout(function () {
+                  a.innerHTML = "&#xf2c7;";
+                }, 3000);
+              }
+              chargeterm();
+              setInterval(chargeterm, 4000);
+            </script>
+            <h3 id="tempView2">VAL Temp </h3>
+          </div>
+        </div>
+
+      </div>
+      <!-- end navbar top -->
+      <!--  wrapper -->
+      <div id="wrapper"
+        style="	background-image: linear-gradient(to bottom, rgb(150,178,137), rgb(150,178,137));	background-position: top left;	background-size: 100%;	background-repeat: repeat;"
+        class="">
+        <!-- Core Scripts - Include with every page -->
+        <script src="assets/plugins/jquery-1.10.2.js" style=""></script>
+        <script src="assets/plugins/bootstrap/bootstrap.min.js" style=""></script>
+        <script src="assets/plugins/metisMenu/jquery.metisMenu.js" style=""></script>
+        <script src="assets/plugins/pace/pace.js" style=""></script>
+        <!---<script src="assets/scripts/siminta.js" style=""></script>-->
       </div>
     </div>
   </div>
-  <div class="col-xs-4">
-    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-      <div class="panel-body">
-        <i class="fa fa-sun-o fa-5x" aria-hidden="true"></i>
-        <h3 id="radiacView2">VALUE Radiac </h3>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-4">
-    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-      <div class="panel-body">
-        <h1 class="display-1">1011mbar</h1>
-        <h3 id="pressureView2">1011mbar</h3>
-        <h3 >Pressure</h3>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-4">
-    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-      <div class="panel-body">
-        <h1 class="display-1">FECHA</h1>
-        <h3 id="fechaView2">VALUE </h3>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-4">
-    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-      <div class="panel-body">
-        <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-        <h3 id="humedadView2">VAL Humedad</h3>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-4">
-    <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-      <div class="panel-body">
-        <div id="div1" class="fa fa-5x"></div>
-        <script style="">
-          function chargeterm() {
-            var a;
-            a = document.getElementById("div1");
-            a.innerHTML = "&#xf2cb;";
-            setTimeout(function() {
-              a.innerHTML = "&#xf2ca;";
-            }, 1000);
-            setTimeout(function() {
-              a.innerHTML = "&#xf2c8;";
-            }, 2000);
-            setTimeout(function() {
-              a.innerHTML = "&#xf2c7;";
-            }, 3000);
-          }
-          chargeterm();
-          setInterval(chargeterm, 4000);
-        </script>
-        <h3 id="tempView2">VAL Temp </h3>
-      </div>
-    </div>
-  </div>
-  <!-- end navbar top -->
-  <!--  wrapper -->
-  <div id="wrapper" style="	background-image: linear-gradient(to bottom, rgb(150,178,137), rgb(150,178,137));	background-position: top left;	background-size: 100%;	background-repeat: repeat;" class="">
-    <!-- Core Scripts - Include with every page -->
-    <script src="assets/plugins/jquery-1.10.2.js" style=""></script>
-    <script src="assets/plugins/bootstrap/bootstrap.min.js" style=""></script>
-    <script src="assets/plugins/metisMenu/jquery.metisMenu.js" style=""></script>
-    <script src="assets/plugins/pace/pace.js" style=""></script>
-    <!---<script src="assets/scripts/siminta.js" style=""></script>-->
-  </div>
-  <script type="text/javascript" src="../view2.js"></script>
+  <script type="text/javascript" src="../variablesArduino.js"></script>
 </body>
 
 </html>
