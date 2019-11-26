@@ -13,13 +13,15 @@ SERVER_URL =  "http://localhost"
 
 
 globalValuesArduino = {}
-@app.route('/getView2', methods=['GET'])
+globalValuesVictron = {}
+
+@app.route('/getArduinoValues', methods=['GET'])
 def getView2():
     data  = json.dumps(globalValuesArduino)
 
     return data
 
-@app.route('/getView3')
+@app.route('/getVictronValues')
 def getView3():
     print(executer.x.show_data())
     data  = json.dumps(globalValuesArduino)
@@ -28,8 +30,10 @@ def getView3():
 
 @app.route('/updateVictronValues')
 def updateVictronValues():
-    print(executer.x.show_data())
-    data  = json.dumps(globalValuesArduino)
+    victronData = executer.x.show_data()
+    
+    
+    data  = json.dumps(victronData)
     
     return data
 
@@ -47,15 +51,14 @@ def updateArduinoValues():
 
 
 
-def sendDataToServer():
+def sendDataToServer(dataset):
     
     #r = rq.post(url = "http://localhost:8080/ceiba_data", data = {"data":json.dumps([{"measure":"s1","value":"-1"},{"measure":"s2","value":"-1"}])})
-    r = rq.post(url = "http://localhost:8080/ceiba_data", data = {"data":json.dumps([{"measure":i, "value":globalValuesArduino[i]} for i in globalValuesArduino])})
+    r = rq.post(url = "http://localhost:8080/ceiba_data", data = {"data":json.dumps([{"measure":i, "value":dataset[i]} for i in dataset])})
     
     pastebin_url = r.text 
     print("The pastebin URL is:%s"%pastebin_url) 
 
 
 if __name__ == '__main__':
-
     app.run(debug=True, port=4000, host='0.0.0.0')

@@ -1,19 +1,21 @@
 
+view3Funct();
 var myVar = setInterval(view3Funct, 1000);
 async function view3Funct() {
     
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", "http://0.0.0.0:4000/getView3", false ); // false for synchronous request
+    xmlHttp.open( "GET", "http://0.0.0.0:4000/getVictronValues", false ); // false for synchronous request
     xmlHttp.send( null );
     
     data = JSON.parse(await xmlHttp.responseText)
     
-    document.getElementById("valuePv").innerText = data["valuePv"] + " PW"
-    document.getElementById("valueConsume").innerText = data["valueConsume"] +" PW"
-    document.getElementById("percentageVal").innerText = data["percentageVal"]
-    document.getElementById("valSoc").innerText = data["valSoc"]+" SoC"
-    document.getElementById("valEqLight").innerText = data["valEqLight"]+ "Eq light"
-    document.getElementById("valConsumoAC").innerText = data["valConsumoAC"] + "consumo AC"
+    document.getElementById("potenciaActual").innerText = data["potenciaActual"] + " W"
+    document.getElementById("maximaPotencia").innerText = data["maximaPotencia"] +" W"
+    document.getElementById("energiaGenerada").innerText = data["energiaGenerada"] +" kWh"
+    document.getElementById("estadoBateria").innerText = data["estadoBateria"]
+    document.getElementById("TiempoBateria").innerText = data["TiempoBateria"]+ " minutos"
+    document.getElementById("porcentajeBattery").innerText = data["porcentajeBattery"] + " %"
+    document.getElementById("valConsumoAC").innerText = data["valConsumoAC"] + " kW"
 }
 
 let toView1 = function(){

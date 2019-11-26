@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%">
 
 <head>
   <meta charset="utf-8">
@@ -12,16 +12,17 @@
 
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/main-style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="variablesVictron.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
-<body>
+<body style="height: 100%">
   <nav class="navbar navbar-default " role="navigation" id="navbar"
     style="	background-image: linear-gradient(to bottom, rgb(150,178,137), rgb(150,178,137));	background-position: top left;	background-size: 100%;	background-repeat: repeat;"
     padding="700px">
     <!-- navbar-header -->
     <div class="navbar-header">
-      <h1 class="">Ceiba Solar Eafit</h1>
+      <h1 style="color: white">Ceiba Solar Eafit</h1>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -62,19 +63,21 @@
     </ul>
     <!-- end navbar-top-links -->
   </nav>
-  <div id="container" style="display: flex">
+  <div id="container" style="display: flex; height: 100%;">
     <div style="width: 4%"></div>
-    <div style="height: 420px; width: 35%;background-color: #9ed9c2">
+    <div style="height: 80%; width: 35%;background-color: #9ed9c2">
       <font size="20">
-        <p style="text-align: center">
+        <p style="text-align: center; padding: 20px">
           <b id="fechaActual">FECHA</b>
         </p>
       </font>
+      <br>
       <font size="5">
         <p style="text-align: center">
           La Ceiba ha generado la energía para mantener este bombillo encendido durante
         </p>
       </font>
+      <br>
       <div style="display: flex; justify-content: center;">
         <img src="./assets/img/bombilla.png" width="100" height="100" align="middle" />
       </div>
@@ -85,69 +88,107 @@
       </font>
     </div>
     <div style="width: 4%"></div>
-    <div>
-      <div class="col-xs-4">
-        <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-          <div class="panel-body">
-            <i class="fa fa-sun-o fa-5x" aria-hidden="true"></i>
-            <h3 id="radiacView2">VALUE Radiac </h3>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-xs-4">
-        <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-          <div class="panel-body">
-              <img src="./assets/img/presion.png" width="70" height="70" align="middle" />
-            <h3 id="pressureView2">1011mbar</h3>
-          </div>
-        </div>
-      </div>
+    <div style="width: 100%">
+      <br>
+      <div style="display: flex;height: 40%;width: 100%;">
 
-      <div class="col-xs-4" style="visibility: hidden">
-          <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-            <div class="panel-body">
-                <img src="./assets/img/presion.png" width="70" height="70" align="middle" />
-              <h3>1011mbar</h3>
+        <div class=" col-xs-4" style="height: 80%; width: 50%">
+          <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);height: 100%;">
+            <div class="panel-body" style="height: 100%">
+              <i class="fa fa-sun-o fa-5x" style="font-size:130px" aria-hidden="true"></i>
+
+              <font size="5">
+                <p style="text-align: center;  ">
+                  Radiación
+                </p>
+              </font>
+              <font size="6">
+                <b id="radiac" style="text-align: center;  ">
+                  185.6W/m2
+                </b>
+              </font>
             </div>
           </div>
         </div>
 
-      <div class="col-xs-4">
-        <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-          <div class="panel-body">
-            <i class="fa fa-tint fa-5x" width="500" aria-hidden="true"></i>
-            <h3 id="humedadView2">VAL Humedad</h3>
+        <div class="col-xs-4" style="height: 80%; width: 50%">
+          <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);height: 100%;">
+            <div class="panel-body" style="height: 100%">
+              <img src="./assets/img/presion.png" width="130" height="130" align="middle" />
+              
+              <font size="5">
+                  <p style="text-align: center;  ">
+                    Presión
+                  </p>
+                </font>
+                <font size="6">
+                  <b id="pressure" style="text-align: center;  ">
+                    1015 mbar
+                  </b>
+                </font>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-xs-4">
-        <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);">
-          <div class="panel-body">
-            <div id="div1" class="fa fa-5x"></div>
-            <script style="">
-              function chargeterm() {
-                var a;
-                a = document.getElementById("div1");
-                a.innerHTML = "&#xf2cb;";
-                setTimeout(function () {
-                  a.innerHTML = "&#xf2ca;";
-                }, 1000);
-                setTimeout(function () {
-                  a.innerHTML = "&#xf2c8;";
-                }, 2000);
-                setTimeout(function () {
-                  a.innerHTML = "&#xf2c7;";
-                }, 3000);
-              }
-              chargeterm();
-              setInterval(chargeterm, 4000);
-            </script>
-            <h3 id="tempView2">VAL Temp </h3>
+      <div style="display: flex;height: 40%;width: 100%;">
+
+        <div class="col-xs-4" style="height: 80%; width: 50%">
+          <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);height: 100%;">
+            <div class="panel-body" style="height: 100%">
+              <i class="fa fa-tint fa-5x" style="font-size:130px" aria-hidden="true"></i>
+              <font size="5">
+                  <p style="text-align: center;  ">
+                    Humedad
+                  </p>
+                </font>
+                <font size="6">
+                  <b id="humedad" style="text-align: center;  ">
+                    78%
+                  </b>
+                </font>
+            </div>
           </div>
         </div>
 
+        <div class="col-xs-4" style="height: 80%; width: 50%">
+          <div class="panel panel-primary text-center " style="	border-color: rgb(158 , 217 , 194);height: 100%;">
+            <div class="panel-body" style="height: 100%">
+              <div id="div1" class="fa fa-5x" style="font-size:130px"></div>
+              <script style="">
+                function chargeterm() {
+                  var a;
+                  a = document.getElementById("div1");
+                  a.innerHTML = "&#xf2cb;";
+                  setTimeout(function () {
+                    a.innerHTML = "&#xf2ca;";
+                  }, 1000);
+                  setTimeout(function () {
+                    a.innerHTML = "&#xf2c8;";
+                  }, 2000);
+                  setTimeout(function () {
+                    a.innerHTML = "&#xf2c7;";
+                  }, 3000);
+                }
+                chargeterm();
+                setInterval(chargeterm, 4000);
+              </script>
+              
+              
+              <font size="5">
+                  <p style="text-align: center;  ">
+                    Temperatura
+                  </p>
+                </font>
+                <font size="6">
+                  <b id="temp" style="text-align: center;  ">
+                    23 °C
+                  </b>
+                </font>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- end navbar top -->
       <!--  wrapper -->

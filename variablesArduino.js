@@ -7,10 +7,11 @@ var m_names = ["Enero", "Febrero", "Marzo",
 var d_names = ["Domingo", "Lunes", "Martes", "Miercoles",
     "Jueves", "Viernes", "Sabado"];
 updateDate();
+updateFrontArduino();
 async function updateFrontArduino() {
 
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", "http://0.0.0.0:4000/getView2", false); // false for synchronous request
+    xmlHttp.open("GET", "http://0.0.0.0:4000/getArduinoValues", false); // false for synchronous request
     xmlHttp.send(null);
 
     data = JSON.parse(await xmlHttp.responseText)

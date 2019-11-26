@@ -72,7 +72,7 @@ class ModBus_API:
         'AC consumption' : self.read_device_data(817, 100, d_type='int16'),
         'vebus volt' : float(self.read_device_data(15, 246, d_type='uint16'))/10.0,
         'vebus current' : float(self.read_device_data(18, 246, d_type='int16'))/10.0,
-	'Battery Consumed AH': float(self.read_device_data(845, 100, d_type='uint16'))/-10.0
+	    'Battery Consumed AH': float(self.read_device_data(845, 100, d_type='uint16'))/-10.0
 	#'Consumed Amp1': float(self.read_device_data(771, 234, d_type='uint16'))
 #	'Consumed Amp2': float(self.read_device_data(265, 245, d_type='uint16'))
         }
