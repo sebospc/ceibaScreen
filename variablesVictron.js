@@ -9,13 +9,19 @@ async function view3Funct() {
     
     data = JSON.parse(await xmlHttp.responseText)
     
-    document.getElementById("potenciaActual").innerText = data["potenciaActual"] + " W"
-    document.getElementById("maximaPotencia").innerText = data["maximaPotencia"] +" W"
-    document.getElementById("energiaGenerada").innerText = data["energiaGenerada"] +" kWh"
-    document.getElementById("estadoBateria").innerText = data["estadoBateria"]
-    document.getElementById("TiempoBateria").innerText = data["TiempoBateria"]+ " minutos"
-    document.getElementById("porcentajeBattery").innerText = data["porcentajeBattery"] + " %"
-    document.getElementById("valConsumoAC").innerText = data["valConsumoAC"] + " kW"
+    document.getElementById("vSOC").innerText = "53" + " %"
+    document.getElementById("vBatState").innerText = "Cargando"
+    document.getElementById("vBatTime").innerText = 180 +" minutos"
+    document.getElementById("vPowerOut").innerText = 2.5 +" kW"
+    document.getElementById("vPower").innerText = 10+ " kW"
+    document.getElementById("vMaxPower").innerText = 20 + " w"
+    document.getElementById("vEnergyDay").innerText = 10 + " kWh"
+    //document.getElementById("valConsumoAC").innerText = data["valConsumoAC"] + " kW"
+
+    // update arduino values.
+    var xmlHttpArduino = new XMLHttpRequest();
+    xmlHttpArduino.open("GET", "http://0.0.0.0:4000/updateArduinoValues                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ", false); // false for synchronous request
+    xmlHttpArduino.send(null);
 }
 
 let toView1 = function(){

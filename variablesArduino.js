@@ -18,10 +18,12 @@ async function updateFrontArduino() {
 
 
     
-    document.getElementById("radiacView2").innerText = data["radiacion"];
-    document.getElementById("pressureView2").innerText = data["pressure"] + " mbar";
-    document.getElementById("humedadView2").innerText = data["humedad"] + " Humedad";
-    document.getElementById("tempView2").innerText = data["temp"] + " Temp";
+    document.getElementById("vRad").innerText = data["irr"];
+    document.getElementById("vPress").innerText = data["XDK_A"] + " mbar";
+    document.getElementById("vHumidity").innerText = data["humedad"] + " Humedad";
+    document.getElementById("vTemp").innerText = data["temp"] + " Temp";
+    document.getElementById("vBulbCnt").innerText = "N años";
+    
 }
 
 async function updateDate(){
@@ -41,9 +43,9 @@ let toView3 = function () {
     window.location.replace('./variablesVictron.html');
 }
 
-var myVar = setInterval(recolectInfo, 1000);
-var myVar = setInterval(updateFrontArduino, 5000);
-var myVar = setInterval(updateDate, 5000);
+setInterval(recolectInfo, 1000);
+setInterval(updateFrontArduino, 5000);
+setInterval(updateDate, 5000);
 async function recolectInfo() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "http://0.0.0.0:4000/updateArduinoValues", false); // false for synchronous request
