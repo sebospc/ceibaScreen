@@ -223,7 +223,7 @@ span {
 	bottom: 0;
 	width: 10px;
 	background: #809E75;
-	left: 20%;
+	left: 10%;
 	margin-left: -10px;
 }
 
@@ -241,7 +241,7 @@ span {
 
 .cbp_tmtimeline > li .cbp_tmtime span {
 	display: block;
-	text-align: right;
+	text-align: left;
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span:first-child {
@@ -260,7 +260,8 @@ span {
 
 /* Right content */
 .cbp_tmtimeline > li .cbp_tmlabel {
-	margin: 0 0 15px 25%;
+	margin: 0 5% 15px 15%;
+	
 	background: #193D35;
 	color: #fff;
 	padding: 2em;
@@ -318,7 +319,7 @@ span {
 	border-radius: 50%;
 	box-shadow: 0 0 0 8px #809E75;
 	text-align: center;
-	left: 20%;
+	left: 10%;
 	top: 0;
 	margin: 0 0 0 -25px;
 }
@@ -371,7 +372,7 @@ span {
 
 	.cbp_tmtimeline > li .cbp_tmlabel:after {
 		right: auto;
-		left: 20px;
+		left: 0px;
 		border-right-color: transparent;
 		border-bottom-color: black;
 		top: -20px;

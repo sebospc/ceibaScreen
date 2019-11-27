@@ -9,7 +9,7 @@ import executer
 
 
 app = Flask(__name__)
-SERVER_URL =  "http://localhost"
+SERVER_URL =  "http://localhost:8080"
 
 
 globalValuesArduino = {}
@@ -23,19 +23,14 @@ def getView2():
 
 @app.route('/getVictronValues')
 def getView3():
-    print(executer.x.show_data())
-    data  = json.dumps(globalValuesArduino)
-    
-    return data
-
-@app.route('/updateVictronValues')
-def updateVictronValues():
     victronData = executer.x.show_data()
     
     
     data  = json.dumps(victronData)
     
     return data
+
+
 
 @app.route("/updateArduinoValues")
 def updateArduinoValues():
@@ -54,10 +49,10 @@ def updateArduinoValues():
 def sendDataToServer(dataset):
     
     #r = rq.post(url = "http://localhost:8080/ceiba_data", data = {"data":json.dumps([{"measure":"s1","value":"-1"},{"measure":"s2","value":"-1"}])})
-    r = rq.post(url = "http://localhost:8080/ceiba_data", data = {"data":json.dumps([{"measure":i, "value":dataset[i]} for i in dataset])})
+    r = rq.post(url = SERVER_URL+"/ceiba_data", data = {"data":json.dumps([{"measure":i, "value":dataset[i]} for i in dataset])})
     
-    pastebin_url = r.text 
-    print("The pastebin URL is:%s"%pastebin_url) 
+    response = r.text 
+    
 
 
 if __name__ == '__main__':

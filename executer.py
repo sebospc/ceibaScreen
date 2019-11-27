@@ -86,7 +86,7 @@ s1.flushInput()
 
 def make_json(line):
     parts = line.decode('utf8').split(',')
-    print("parts: ", parts)
+    
     var_names = parts[0].split(';')
     values = parts[1].strip('\r\n').split(';')
     json_body = ''
