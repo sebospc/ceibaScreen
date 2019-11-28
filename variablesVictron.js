@@ -1,6 +1,6 @@
 
 view3Funct();
-var myVar = setInterval(view3Funct, 1000);
+var myVar = setInterval(view3Funct, 300000);
 async function view3Funct() {
     
     var xmlHttp = new XMLHttpRequest();
@@ -8,7 +8,7 @@ async function view3Funct() {
     xmlHttp.send( null );
     
     data = JSON.parse(await xmlHttp.responseText)
-    
+    //Valores estaticos para pruebas deben ser cambiados por los nombres que ofrece victron
     document.getElementById("vSOC").innerText = "53" + " %"
     document.getElementById("vBatState").innerText = "Cargando"
     document.getElementById("vBatTime").innerText = 180 +" minutos"

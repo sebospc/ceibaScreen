@@ -1,8 +1,8 @@
 
 
-var m_names = ["Enero", "Febrero", "Marzo",
-    "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
-    "Octubre", "Noviembre", "Diciembre"];
+var m_names = ["Ene", "Feb", "Mar",
+    "Abr", "May", "Jun", "Jul", "Ago", "Sep",
+    "Oct", "Nov", "Dic"];
 
 var d_names = ["Domingo", "Lunes", "Martes", "Miercoles",
     "Jueves", "Viernes", "Sabado"];
@@ -17,12 +17,12 @@ async function updateFrontArduino() {
     data = JSON.parse(await xmlHttp.responseText)
 
 
-    
-    document.getElementById("vRad").innerText = data["irr"];
+    //Aveces pueden ser undefined
+    document.getElementById("vRad").innerHtml = data["irr"]+" W/m"+"2".sup();
     document.getElementById("vPress").innerText = data["XDK_A"] + " mbar";
     document.getElementById("vHumidity").innerText = data["humedad"] + " Humedad";
     document.getElementById("vTemp").innerText = data["temp"] + " Temp";
-    document.getElementById("vBulbCnt").innerText = "N años";
+    document.getElementById("vBulbCnt").innerText = "N años"; //* Acá se debe poner la ecuacion que hace la conversion enre energia consumida y el bombillo
     
 }
 
@@ -33,7 +33,7 @@ async function updateDate(){
     var curr_month = myDate.getMonth();
     var curr_day = myDate.getDay();
 
-    document.getElementById("fechaActual").innerText = d_names[curr_day] + "," + m_names[curr_month] + " " + curr_date+" de "+ myDate.getFullYear();
+    document.getElementById("fechaActual").innerText = d_names[curr_day] + ", " + m_names[curr_month] + " " + curr_date+" de "+ myDate.getFullYear();
 }
 
 let toView1 = function () {
@@ -44,8 +44,8 @@ let toView3 = function () {
 }
 
 setInterval(recolectInfo, 1000);
-setInterval(updateFrontArduino, 5000);
-setInterval(updateDate, 5000);
+setInterval(updateFrontArduino, 60000);
+setInterval(updateDate, 60000);
 async function recolectInfo() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "http://0.0.0.0:4000/updateArduinoValues", false); // false for synchronous request

@@ -7,7 +7,13 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 
-
+.navbar{
+	margin-bottom: 0px;
+}
+.panel-heading{
+	padding: 0px 0px;
+	border-bottom: 0px;
+}
 
 a {
 	color: #f0f0f0;
@@ -222,7 +228,7 @@ span {
 	top: 0;
 	bottom: 0;
 	width: 10px;
-	background: #809E75;
+	background: #9ed9c2;
 	left: 10%;
 	margin-left: -10px;
 }
@@ -242,6 +248,7 @@ span {
 .cbp_tmtimeline > li .cbp_tmtime span {
 	display: block;
 	text-align: left;
+	padding-left: 2.5%;
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span:first-child {
@@ -251,7 +258,7 @@ span {
 
 .cbp_tmtimeline > li .cbp_tmtime span:last-child {
 	font-size: 2.9em;
-	color: #193D35;
+	color: #7A9872;
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
@@ -262,7 +269,7 @@ span {
 .cbp_tmtimeline > li .cbp_tmlabel {
 	margin: 0 5% 15px 15%;
 	
-	background: #193D35;
+	background: #7A9872;
 	color: #fff;
 	padding: 2em;
 	font-size: 1.2em;
@@ -279,7 +286,7 @@ span {
 .cbp_tmtimeline > li .cbp_tmlabel h2 { 
 	margin-top: 0px;
 	padding: 0 0 10px 0;
-	border-bottom: 1px solid rgba(255,255,255,0.4);
+	border-bottom: 0px solid rgba(255,255,255,0.4);
 }
 
 /* The triangle */
@@ -291,7 +298,7 @@ span {
 	width: 0;
 	position: absolute;
 	pointer-events: none;
-	border-right-color: #193D35;
+	border-right-color: #7A9872;
 	border-width: 10px;
 	top: 10px;
 }
@@ -315,9 +322,9 @@ span {
 	-webkit-font-smoothing: antialiased;
 	position: absolute;
 	color: #fff;
-	background: #163E33;
+	background: #fff;
 	border-radius: 50%;
-	box-shadow: 0 0 0 8px #809E75;
+	box-shadow: 0 0 0 8px #9ed9c2;
 	text-align: center;
 	left: 10%;
 	top: 0;
