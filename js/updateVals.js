@@ -1,6 +1,7 @@
-//Este script solo es para actualizar las variables y enviar los datos al servidor
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
+
+//Este script solo es para actualizar las variables y enviar los datos al servidor
 async function updateValues() {
     var xmlHttpArduino = new XMLHttpRequest();
     xmlHttpArduino.open("GET", "http://0.0.0.0:4000/updateArduinoValues", false); // false for synchronous request
