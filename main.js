@@ -14,11 +14,12 @@ const url = require('url');
 
 let win
 function createWindow() {
-    
+
     win = new BrowserWindow({
         webPreferences: {
             webSecurity: false
-        } })
+        }
+    })
     app.commandLine.appendSwitch('ignore-certificate-errors');
     win.loadURL(url.format({
         pathname: path.join(__dirname, './Ceiba html/variablesArduino.html'),
@@ -28,16 +29,18 @@ function createWindow() {
         }
     }))
     win.maximize();
-    win.setFullScreen(true);    
+    win.setFullScreen(true);
     win.once('ready-to-show', () => win.show)
-
-
+    //peticion para actualizar variables del arduino
     //if(config.env != 'test')
-        //autoUpdater.checkForUpdates();
+    //autoUpdater.checkForUpdates();
 }
 
 
 
 
 
-app.on('ready',createWindow)
+app.on('ready', createWindow)
+
+
+

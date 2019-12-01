@@ -5,7 +5,7 @@ import requests as rq
 import json
 import random
 import executer
-from threading import Timer
+
 
 
 
@@ -36,6 +36,7 @@ def getView3():
 
 
 
+#Está función se debe llamar para leer los datos que envia arduino por la tubería
 @app.route("/updateArduinoValues")
 def updateArduinoValues():
     if executer.s1.inWaiting() > 0:
@@ -66,12 +67,38 @@ def sendDataToServer(dataset):
     response = r.text 
     
 
+#Esta función es llama cada 30 minutos -> 1800000 milisegundos 
+@app.route("/sendPaquete1")
+def sendPaquete1():
+    sendDataToServer(paquete1Arduino)
+    return "nice",200
+
+#Esta función se llama cada 45 minutos -> 2700000 milisegundos
+@app.route("/sendPaquete2Arduino")
+def sendPaquete2Arduino():
+    sendDataToServer(paquete2Arduino)
+    return "nice",200
+
+#Esta funcion se llama cada 10 minutos -> 600000 milisegundos
+@app.route("/senTemperatureSensors")
+def senTemperatureSensors():
+    sendDataToServer(temperatureSensors)
+    return "nice",200
+
+#Esta funcion se llama cada 15 minutos -> 900000 milisegundos
+@app.route("/sendIrrSensor")
+def sendIrrSensor():
+    sendDataToServer(irrSensor)
+    return "nice",200
+
+# Se envía sensores victron 10 minutos -> 600000 milisegundos
+@app.route("/sendVictronData")
+def sendVictronData():
+    sendDataToServer(executer.x.show_data())
+    return "nice",200
+
 if __name__ == '__main__':
-    Timer(1800, sendDataToServer(paquete1Arduino)).start() # paquete1 30 minutos
-    Timer(2700, sendDataToServer(paquete2Arduino)).start() # paquete2 45 minutos
-    Timer(600, sendDataToServer(temperatureSensors)).start() # sensor temperatura 10 minutos
-    Timer(900, sendDataToServer(irrSensor)).start() # sensor radiacion 15 minutos
-    Timer(600, sendDataToServer(executer.x.show_data())).start() # sensores victron 10 minutos
+
     app.run(debug=True, port=4000, host='0.0.0.0')
 
     
