@@ -19,12 +19,15 @@ paquete2Arduino = {}
 temperatureSensors = {}
 irrSensor = {}
 
+
+#Toma las acuales variables de arduino y las envia 
 @app.route('/getArduinoValues', methods=['GET'])
 def getView2():
     data  = json.dumps(globalValuesArduino)
 
     return data
 
+#Hace la petición a victron en la clase executer y envia los resultados entregados
 @app.route('/getVictronValues')
 def getView3():
     victronData = executer.x.show_data()
@@ -58,13 +61,13 @@ def updateArduinoValues():
     return "nice",200
 
 
-
+#recibe un diccionario y lo envía al servidor
 def sendDataToServer(dataset):
     
     #r = rq.post(url = "http://localhost:8080/ceiba_data", data = {"data":json.dumps([{"measure":"s1","value":"-1"},{"measure":"s2","value":"-1"}])})
     r = rq.post(url = SERVER_URL+"/ceiba_data", data = {"data":json.dumps([{"measure":i, "value":dataset[i]} for i in dataset])})
     
-    response = r.text 
+    r.text 
     
 
 #Esta función es llama cada 30 minutos -> 1800000 milisegundos 

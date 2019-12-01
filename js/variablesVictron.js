@@ -16,10 +16,11 @@ async function view3Funct() {
     document.getElementById("vPower").innerText = 10+ " kW"
     document.getElementById("vMaxPower").innerText = 20 + " w"
     document.getElementById("vEnergyDay").innerText = 10 + " kWh"
-     document.getElementById("valConsumoAC").innerText = data["valConsumoAC"] + " kW"
+    //document.getElementById("valConsumoAC").innerText = data["valConsumoAC"] + " kW"
 
     // update arduino values.
 }
+//ejecuta la funcion cada 5 minutos
 setInterval(view3Funct, 300000);
 
 let toView1 = function(){
